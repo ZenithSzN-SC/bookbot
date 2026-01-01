@@ -16,3 +16,18 @@ def get_num_chars(text):
             char_count[char] = 1
 
     return char_count
+
+def sort_on(item):
+    return item["num"]
+
+def sort_char_counts(char_counts):
+    result = []
+
+    for char in char_counts:
+        if char.isalpha():
+            result.append({
+                "char": char,
+                "num": char_counts[char]
+            })
+    result.sort(reverse=True, key=sort_on)
+    return result
